@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <!-- ======== DEMO SNIPPET ======== -->
+    <template id="basic_snippet" name="Demo Snippet - UTAG">
+        <section class="container trending">
+            <div class="row">
+                <div class="o_snippet_not_selectable col-lg-4 my-image">
+                    <img class="img img-fluid d-block" src="/theme_graphene/static/src/img/pictures/content_01.jpg" data-index="0"/>
+                    <div class="image-title">Women</div>
+                    <a class="btn btn-white stretched-link" href="shop.html">
+                        Shop Women <i class="fe fe-arrow-right ms-2"></i>
+                    </a>
+                </div>
+                <div class="o_snippet_not_selectable col-lg-4 my-image">
+                    <img class="img img-fluid d-block" src="/theme_graphene/static/src/img/pictures/content_01.jpg" data-index="1"/>
+                    <div class="image-title">Men</div>
+                    <a class="btn btn-white stretched-link" href="shop.html">
+                        Shop Men <i class="fe fe-arrow-right ms-2"></i>
+                    </a>
+                </div>
+                <div class="o_snippet_not_selectable col-lg-4 my-image">
+                    <img class="img img-fluid d-block" src="/theme_graphene/static/src/img/pictures/content_01.jpg" data-index="2"/>
+                    <div class="image-title">Kids</div>
+                    <a class="btn btn-white stretched-link" href="shop.html">
+                        Shop Kids <i class="fe fe-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <template id="external_snippets" inherit_id="website.snippets">
+        <xpath expr="//div[@id='snippet_feature']//t[@t-snippet][last()]" position="after">
+            <t t-snippet="website_airproof.basic_snippet"/>
+        </xpath>
+    </template>
+
+    <!-- make options for custom snippet -->
+    <template id="custom_snippet_options" inherit_id="website.snippet_options">
+        <xpath expr="." position="inside">
+            <div data-selector="section.trending">
+                <we-row string="Padding">
+                    <we-input t-att-data-apply-to="apply_to" data-css-property="padding" data-unit="px"
+                        data-select-style="0" />
+                </we-row>
+                <we-select string="Width">
+                    <we-button data-select-class="w-25">25%</we-button>
+                    <we-button data-select-class="w-50">50%</we-button>
+                    <we-button data-select-class="w-75">75%</we-button>
+                    <we-button data-select-class="w-100" data-name="so_width_100">100%
+                    </we-button>
+                </we-select>
+                <we-select string="Custom Options">
+                    <we-button data-select-class="new">new</we-button>
+                    <we-button data-select-class="d-none">None</we-button>
+                    <we-button data-select-class="custom">custom</we-button>
+                </we-select>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>
